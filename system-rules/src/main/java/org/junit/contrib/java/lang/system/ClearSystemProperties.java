@@ -5,7 +5,7 @@ import static java.lang.System.clearProperty;
 import org.junit.rules.ExternalResource;
 
 /**
- * The {@code ClearSystemProperty} rule clears a set of system properties to a
+ * The {@code ClearSystemProperties} rule clears a set of system properties to a
  * test. After the test the original values are restored.
  * 
  * Let's assume the system property {@code MyProperty} has the value
@@ -14,8 +14,8 @@ import org.junit.rules.ExternalResource;
  * <pre>
  *   public void MyTest {
  *     &#064;Rule
- *     public final ClearSystemProperty myPropertyIsCleared
- *       = new ClearSystemProperty("MyProperty");
+ *     public final TestRule myPropertyIsCleared
+ *       = new ClearSystemProperties("MyProperty");
  * 
  *     &#064;Test
  *     public void overrideProperty() {
@@ -27,11 +27,11 @@ import org.junit.rules.ExternalResource;
  * The test succeeds and after the test, the system property {@code MyProperty}
  * has the value {@code MyValue}.
  * 
- * The {@code ClearSystemProperty} rule accepts a list of properties:
+ * The {@code ClearSystemProperties} rule accepts a list of properties:
  * 
  * <pre>
  * &#064;Rule
- * public final ClearSystemProperty myPropertyIsCleared = new ClearSystemProperty(
+ * public final TestRule myPropertyIsCleared = new ClearSystemProperties(
  * 		&quot;first&quot;, &quot;second&quot;, &quot;third&quot;);
  * </pre>
  */
